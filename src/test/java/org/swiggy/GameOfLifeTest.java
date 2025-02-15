@@ -30,6 +30,14 @@ class GameOfLifeTest {
     }
 
     @Test
+    void testGameCreationReturnNoExceptionWhenPositiveRows() {
+        int rows = 5;
+        int cols = 5;
+        double numberOfSeeds = 10;
+        assertDoesNotThrow(() -> new GameOfLife(rows, cols, numberOfSeeds));
+    }
+
+    @Test
     void testGameCreationReturnExceptionWhenNegativeCols() {
         int rows = 5;
         int cols = -5;
@@ -42,6 +50,14 @@ class GameOfLifeTest {
         int cols = 0;
         double numberOfSeeds = 10;
         assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
+    }
+
+    @Test
+    void testGameCreationReturnNoExceptionWhenPositiveCols() {
+        int rows = 5;
+        int cols = 5;
+        double numberOfSeeds = 10;
+        assertDoesNotThrow(() -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
     @Test
@@ -68,6 +84,12 @@ class GameOfLifeTest {
         assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
-
+    @Test
+    void testGameCreationReturnNoExceptionWhenPositiveNumberOfSeedsWithinLimit() {
+        int rows = 5;
+        int cols = 5;
+        double numberOfSeeds = 10;
+        assertDoesNotThrow(() -> new GameOfLife(rows, cols, numberOfSeeds));
+    }
 
 }
