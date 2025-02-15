@@ -9,55 +9,63 @@ class GameOfLifeTest {
     void testSuccessfullyGameCreation() {
         int rows = 5;
         int cols = 5;
-        double seedPercentage = 10;
-        GameOfLife gameOfLife = new GameOfLife(rows, cols, seedPercentage);
+        double numberOfSeeds = 10;
+        GameOfLife gameOfLife = new GameOfLife(rows, cols, numberOfSeeds);
     }
 
     @Test
     void testGameCreationReturnExceptionWhenNegativeRows() {
         int rows = -5;
         int cols = 5;
-        double seedPercentage = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = 10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
     @Test
     void testGameCreationReturnExceptionWhenZeroRows() {
         int rows = 0;
         int cols = 5;
-        double seedPercentage = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = 10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
     @Test
     void testGameCreationReturnExceptionWhenNegativeCols() {
         int rows = 5;
         int cols = -5;
-        double seedPercentage = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = 10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
     @Test
     void testGameCreationReturnExceptionWhenZeroCols() {
         int rows = 5;
         int cols = 0;
-        double seedPercentage = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = 10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenNegativeSeedPercentage() {
+    void testGameCreationReturnExceptionWhenNegativeNumberOfSeeds() {
         int rows = 5;
         int cols = 5;
-        double seedPercentage = -10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = -10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenZeroSeedPercentage() {
+    void testGameCreationReturnExceptionWhenZeroNumberOfSeeds() {
         int rows = 5;
         int cols = 5;
-        double seedPercentage = 0;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+        double numberOfSeeds = 0;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
+    }
+
+    @Test
+    void testGameCreationReturnExceptionWhenNumberOfSeedsGreaterThanLimit() {
+        int rows = 5;
+        int cols = 5;
+        double numberOfSeeds = 110;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, numberOfSeeds));
     }
 
 
