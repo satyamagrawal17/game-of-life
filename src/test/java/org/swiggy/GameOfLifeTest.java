@@ -44,4 +44,12 @@ class GameOfLifeTest {
         assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
     }
 
+    @Test
+    void testGameCreationReturnExceptionWhenNegativeSeedPercentage() {
+        int rows = 5;
+        int cols = 5;
+        double seedPercentage = -10;
+        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, seedPercentage));
+    }
+
 }
