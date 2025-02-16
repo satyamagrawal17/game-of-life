@@ -93,6 +93,18 @@ class GameOfLifeTest {
     }
 
 
+    // Test Start Method
+    @Test
+    void testStartMethodReturnNoExceptionWhenNoAliveCells() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 10;
+        GameOfLife gameOfLife = new GameOfLife(rows, cols, initialAliveCells);
+        gameOfLife.start();
+        assertTrue(gameOfLife.hasMinimumGeneration(1));
+    }
+
+
 
 
 }

@@ -97,4 +97,8 @@ public class Grid {
         }
         return aliveNeighbours;
     }
+
+    public boolean hasMinimumGeneration(int minGeneration) {
+        return generation >= minGeneration;
+    }
 }

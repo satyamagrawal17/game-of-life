@@ -14,4 +14,8 @@ public class GameOfLife {
         }
     }
 
+    public boolean hasMinimumGeneration(int minGeneration) {
+        return grid.hasMinimumGeneration(minGeneration);
+    }
+
 }
