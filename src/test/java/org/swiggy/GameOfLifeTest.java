@@ -116,6 +116,19 @@ class GameOfLifeTest {
         assertTrue(gameOfLife.hasGeneration(1));
     }
 
+    // Test for Reset Method
+    @Test
+    void testResetMethodReturnTrueWhenCalled() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 10;
+        GameOfLife gameOfLife = new GameOfLife(rows, cols, initialAliveCells);
+        gameOfLife.next();
+        assertTrue((gameOfLife.hasGeneration(1)));
+        gameOfLife.reset();
+        assertTrue(gameOfLife.hasGeneration(0));
+    }
+
 
 
 }

@@ -105,4 +105,14 @@ public class Grid {
     public boolean hasGeneration(int generation) {
         return this.generation == generation;
     }
+
+    public void reset() {
+        generation = 0;
+        aliveCells = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                cells.get(i).set(j, null);
+            }
+        }
+    }
 }

@@ -21,6 +21,10 @@ public class GameOfLife {
         grid.nextGeneration();
     }
 
+    public void reset() {
+        grid.reset();
+    }
+
     public boolean hasGeneration(int generation) {
         return grid.hasGeneration(generation);
     }
@@ -28,6 +32,7 @@ public class GameOfLife {
     public boolean hasMinimumGeneration(int minGeneration) {
         return grid.hasMinimumGeneration(minGeneration);
     }
+
 
 
 }
