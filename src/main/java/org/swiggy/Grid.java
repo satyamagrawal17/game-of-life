@@ -49,13 +49,11 @@ public class Grid {
     }
 
     public boolean hasAliveCells(int expectedAliveCells) {
-        System.out.println(aliveCells);
         return aliveCells == expectedAliveCells;
     }
 
 
     public void nextGeneration() {
-        generation++;
         List<List<Cell>> newCells = new ArrayList<>();
         for (int i = 0; i < rows; i++) {
             List<Cell> row = new ArrayList<>();
@@ -83,6 +81,7 @@ public class Grid {
             }
         }
         cells = newCells;
+        generation++;
     }
 
     private int getAliveNeighbours(int rowIndex, int colIndex) {

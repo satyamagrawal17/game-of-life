@@ -102,4 +102,14 @@ class GridTest {
         assertTrue(grid.hasAliveCells(initialAliveCells));
     }
 
+    @Test
+    void testGridNextGenerationMethodReturnNoExceptionWhenStateChanges() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 10;
+        Grid grid = new Grid(rows, cols);
+        grid.seed(initialAliveCells);
+        assertDoesNotThrow(grid::nextGeneration);
+    }
+
 }
