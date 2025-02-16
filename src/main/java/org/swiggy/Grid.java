@@ -42,10 +42,14 @@ public class Grid {
                 cells.get(rowIndex).set(colIndex, new Cell());
                 aliveCells++;
             }
+            else {
+                i--;
+            }
         }
     }
 
     public boolean hasAliveCells(int expectedAliveCells) {
+        System.out.println(aliveCells);
         return aliveCells == expectedAliveCells;
     }
 

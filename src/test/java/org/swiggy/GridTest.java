@@ -74,7 +74,7 @@ class GridTest {
     }
 
     @Test
-    void testGameCreationReturnNoExceptionWhenPositiveNumberOfSeedsWithinLimit() {
+    void testGridSeedReturnNoExceptionWhenPositiveNumberOfSeedsWithinLimit() {
         int rows = 5;
         int cols = 5;
         int initialAliveCells = 10;
@@ -82,6 +82,24 @@ class GridTest {
         assertDoesNotThrow(() -> grid.seed(initialAliveCells));
     }
 
+    @Test
+    void testGridHasAliveCellsReturnTrueWhenExpectedAliveCellsMatch() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 10;
+        Grid grid = new Grid(rows, cols);
+        grid.seed(initialAliveCells);
+        assertTrue(grid.hasAliveCells(initialAliveCells));
+    }
 
+    @Test
+    void testGridHasAliveCellsReturnTrueWhenAddedHighNumberOfCells() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 25;
+        Grid grid = new Grid(rows, cols);
+        grid.seed(initialAliveCells);
+        assertTrue(grid.hasAliveCells(initialAliveCells));
+    }
 
 }
