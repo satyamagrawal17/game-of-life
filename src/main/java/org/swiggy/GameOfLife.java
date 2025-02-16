@@ -7,4 +7,11 @@ public class GameOfLife {
         this.grid.seed(initialAliveCells);
     }
 
+    public void start() {
+        System.out.println("Game started");
+        while(!grid.hasAliveCells(0)) {
+            grid.nextGeneration();
+        }
+    }
+
 }

@@ -44,4 +44,54 @@ public class Grid {
             }
         }
     }
+
+    public boolean hasAliveCells(int expectedAliveCells) {
+        return aliveCells == expectedAliveCells;
+    }
+
+
+    public void nextGeneration() {
+        generation++;
+        List<List<Cell>> newCells = new ArrayList<>();
+        for (int i = 0; i < rows; i++) {
+            List<Cell> row = new ArrayList<>();
+            for (int j = 0; j < cols; j++) {
+                row.add(null);
+            }
+            newCells.add(row);
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                int aliveNeighbours = getAliveNeighbours(i, j);
+                if (cells.get(i).get(j) != null) {
+                    if (aliveNeighbours < 2 || aliveNeighbours > 3) {
+                        newCells.get(i).set(j, null);
+                        aliveCells--;
+                    } else {
+                        newCells.get(i).set(j, new Cell());
+                    }
+                } else {
+                    if (aliveNeighbours == 3) {
+                        newCells.get(i).set(j, new Cell());
+                        aliveCells++;
+                    }
+                }
+            }
+        }
+        cells = newCells;
+    }
+
+    private int getAliveNeighbours(int rowIndex, int colIndex) {
+        int aliveNeighbours = 0;
+        for(EDirection dir : EDirection.values()) {
+            int newRow = rowIndex + dir.getDx();
+            int newCol = colIndex + dir.getDy();
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                if (cells.get(newRow).get(newCol) != null) {
+                    aliveNeighbours++;
+                }
+            }
+        }
+        return aliveNeighbours;
+    }
 }

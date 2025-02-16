@@ -6,74 +6,71 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GridTest {
     @Test
-    void testGameCreationReturnExceptionWhenNegativeRows() {
+    void testGridCreationReturnExceptionWhenNegativeRows() {
         int rows = -5;
         int cols = 5;
-        int initialAliveCells = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        assertThrows(IllegalArgumentException.class, () -> new Grid(rows, cols));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenZeroRows() {
+    void testGridCreationReturnExceptionWhenZeroRows() {
         int rows = 0;
         int cols = 5;
-        int initialAliveCells = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        assertThrows(IllegalArgumentException.class, () -> new Grid(rows, cols));
     }
 
     @Test
-    void testGameCreationReturnNoExceptionWhenPositiveRows() {
+    void testGridCreationReturnNoExceptionWhenPositiveRows() {
         int rows = 5;
         int cols = 5;
-        int initialAliveCells = 10;
-        assertDoesNotThrow(() -> new GameOfLife(rows, cols, initialAliveCells));
+        assertDoesNotThrow(() -> new Grid(rows, cols));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenNegativeCols() {
+    void testGridCreationReturnExceptionWhenNegativeCols() {
         int rows = 5;
         int cols = -5;
-        int initialAliveCells = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        assertThrows(IllegalArgumentException.class, () -> new Grid(rows, cols));
     }
     @Test
-    void testGameCreationReturnExceptionWhenZeroCols() {
+    void testGridCreationReturnExceptionWhenZeroCols() {
         int rows = 5;
         int cols = 0;
-        int initialAliveCells = 10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        assertThrows(IllegalArgumentException.class, () -> new Grid(rows, cols));
     }
 
     @Test
-    void testGameCreationReturnNoExceptionWhenPositiveCols() {
+    void testGridCreationReturnNoExceptionWhenPositiveCols() {
         int rows = 5;
         int cols = 5;
-        int initialAliveCells = 10;
-        assertDoesNotThrow(() -> new GameOfLife(rows, cols, initialAliveCells));
+        assertDoesNotThrow(() -> new Grid(rows, cols));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenNegativeNumberOfSeeds() {
+    void testGridSeedReturnExceptionWhenNegativeNumberOfSeeds() {
         int rows = 5;
         int cols = 5;
         int initialAliveCells = -10;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        Grid grid = new Grid(rows, cols);
+        assertThrows(IllegalArgumentException.class, () -> grid.seed(initialAliveCells));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenZeroNumberOfSeeds() {
+    void testGridSeedReturnExceptionWhenZeroNumberOfSeeds() {
         int rows = 5;
         int cols = 5;
         int initialAliveCells = 0;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        Grid grid = new Grid(rows, cols);
+        assertThrows(IllegalArgumentException.class, () -> grid.seed(initialAliveCells));
     }
 
     @Test
-    void testGameCreationReturnExceptionWhenNumberOfSeedsGreaterThanLimit() {
+    void testGridSeedReturnExceptionWhenNumberOfSeedsGreaterThanLimit() {
         int rows = 5;
         int cols = 5;
         int initialAliveCells = 110;
-        assertThrows(IllegalArgumentException.class, () -> new GameOfLife(rows, cols, initialAliveCells));
+        Grid grid = new Grid(rows, cols);
+        assertThrows(IllegalArgumentException.class, () -> grid.seed(initialAliveCells));
     }
 
     @Test
@@ -81,7 +78,10 @@ class GridTest {
         int rows = 5;
         int cols = 5;
         int initialAliveCells = 10;
-        assertDoesNotThrow(() -> new GameOfLife(rows, cols, initialAliveCells));
+        Grid grid = new Grid(rows, cols);
+        assertDoesNotThrow(() -> grid.seed(initialAliveCells));
     }
+
+
 
 }
