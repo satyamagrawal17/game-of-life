@@ -9,9 +9,13 @@ public class GameOfLife {
 
     public void start() {
         System.out.println("Game started");
+        int generation = 0;
         while(!grid.hasAliveCells(0)) {
             grid.nextGeneration();
+            generation++;
+            System.out.println("Current Generation: " + generation);
         }
+        System.out.println("Game ended at generation: " + generation);
     }
 
     public void next() {
