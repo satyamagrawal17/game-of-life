@@ -104,6 +104,17 @@ class GameOfLifeTest {
         assertTrue(gameOfLife.hasMinimumGeneration(1));
     }
 
+    // Test Next Method
+
+    @Test
+    void testNextMethodReturnTrueWhenCalledOnce() {
+        int rows = 5;
+        int cols = 5;
+        int initialAliveCells = 10;
+        GameOfLife gameOfLife = new GameOfLife(rows, cols, initialAliveCells);
+        gameOfLife.next();
+        assertTrue(gameOfLife.hasGeneration(1));
+    }
 
 
 

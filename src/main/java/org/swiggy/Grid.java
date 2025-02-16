@@ -101,4 +101,8 @@ public class Grid {
     public boolean hasMinimumGeneration(int minGeneration) {
         return generation >= minGeneration;
     }
+
+    public boolean hasGeneration(int generation) {
+        return this.generation == generation;
+    }
 }

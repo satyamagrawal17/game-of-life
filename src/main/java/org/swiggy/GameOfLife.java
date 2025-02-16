@@ -14,8 +14,20 @@ public class GameOfLife {
         }
     }
 
+    public void next() {
+        if(grid.hasAliveCells(0)) {
+            throw new IllegalStateException("Game has ended");
+        }
+        grid.nextGeneration();
+    }
+
+    public boolean hasGeneration(int generation) {
+        return grid.hasGeneration(generation);
+    }
+
     public boolean hasMinimumGeneration(int minGeneration) {
         return grid.hasMinimumGeneration(minGeneration);
     }
+
 
 }
